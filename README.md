@@ -6,7 +6,9 @@ Cette API crée un compte avec des valeurs complêtement aléatoires, avec le m�
 
 ## ⚛️ Fonctionnement
 Sur les premières lignes de **index.js**, vous pouvez configurer tous les paramètres principaux de l'application.  
-Chaque connexion avec un des mots de passe autorisés sera sauvegardée, et le compte créé sera associé à ce mot de passe. Attention, à chaque redémmarrage de l'API, tous les comptes crées sont supprimés, un système de sauvegarde est prévu dans le futur.
+Chaque connexion avec un des mots de passes autorisés sera sauvegardée, et le compte créé sera associé à ce mot de passe. Attention, à chaque redémmarrage de l'API, tous les comptes créés sont supprimés, un système de sauvegarde est prévu dans le futur.  
+
+Un deuxième endpoint pour les notes est accessible, celui là réplique l'API de notes d'ÉcoleDirecte, en créant lui aussi des notes complêtement aléatoires. Les notes sont également associées à un compte créé précédemment.
 
 ## Comment l'utiliser ?
 Tout le monde peut l'utilser ! Vous pouvez cloner le projet pour l'utiliser personnellement, ou bien proposer de nouvelles fonctionnalités avec une pull request.
