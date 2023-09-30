@@ -5,7 +5,7 @@ Ce projet est une API qui réplique les comportements d'ÉcoleDirecte.
 Elle crée un compte avec un nom, un classe, et d'autres valeurs toutes aléatoires, et un deuxième endpoint permet de récupérer les notes de ce compte, elles aussi aléatoires. Cette API formate les données exactement comme ÉcoleDirecte, c'est donc une bonne alternative pour tester des projets.
 
 ## ⚛️ Fonctionnement
-Sur les premières lignes de **index.js**, vous pouvez configurer tous les paramètres principaux de l'application.  
+Paramétrez l'API dans le fichier .env  
 Chaque connexion avec un des mots de passes autorisés sera sauvegardée, et le compte créé sera associé à ce mot de passe. Attention, à chaque redémmarrage de l'API, tous les comptes créés sont supprimés, un système de sauvegarde est prévu dans le futur.  
 
 Le 2e endpoint renvoie des périodes, matières et notes toutes aléatoires, dans le même format qu'ÉcoleDirecte. Elles sont elles aussi associées à un ID de compte (dont il y a besoin pour récupérer les notes).

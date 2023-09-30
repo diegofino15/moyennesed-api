@@ -1,15 +1,9 @@
 // API parameters //
-const PASSWORDS = [
-    // Enter allowed password here, each password will
-    // be associated to a different account, but every
-    // time you restart the server, saved accounts will
-    // be deleted.
-];
-const GRADE_COEFFICIENTS = false;
-const AVERAGES_COEFFICIENTS = false;
-
-// Connection parameters //
 const PORT = 777;
+
+// Load special environment variables
+require('dotenv').config();
+const ALLOWED_PASSWORDS = JSON.parse(process.env.ALLOWED_PASSWORDS);
 
 // Init app //
 const express = require("express");
@@ -115,7 +109,7 @@ function createGrades(accountID) {
     function createPeriod(code, cloture) {
         function createDiscipline(index) {
             const disciplineID = Object.keys(disciplines)[index];
-            const coefficient = AVERAGES_COEFFICIENTS ? (getRandomInt(3) + 1) : 0;
+            const coefficient = process.env.AVERAGES_COEFFICIENTS ? (getRandomInt(3) + 1) : 0;
 
             const data = {
                 "id": getRandomInt(10000),
@@ -175,7 +169,7 @@ function createGrades(accountID) {
         const disciplineID = getRandomItem(Object.keys(disciplines));
         const inLetters = Math.random() < 0.05;
         const gradeOn = (Math.random() < 0.2) ? 10 : 20;
-        const coefficient = GRADE_COEFFICIENTS ? (getRandomInt(3) + 1) : 0;
+        const coefficient = process.env.GRADE_COEFFICIENTS ? (getRandomInt(3) + 1) : 0;
 
         return {
             "id": ID,
@@ -247,7 +241,7 @@ function createGrades(accountID) {
             // "moyenneEleve": -,
             // "moyenneEleveDansMoyenne": -,
             // "moyenneGenerale": -,
-            "moyenneCoefMatiere": AVERAGES_COEFFICIENTS,
+            "moyenneCoefMatiere": process.env.AVERAGES_COEFFICIENTS,
             // "moyenneClasse": -,
             // "moyenneMin": -,
             // "moyenneMax": -,
@@ -255,7 +249,7 @@ function createGrades(accountID) {
             "moyenneSur": 20,
             // "moyenneGraphique": -,
             // "moyennesSimulation": -,
-            "coefficientNote": GRADE_COEFFICIENTS,
+            "coefficientNote": process.env.GRADE_COEFFICIENTS,
             // "colonneCoefficientMatiere": -,
             // "noteGrasSousMoyenne": -,
             // "noteGrasAudessusMoyenne": -,
@@ -287,10 +281,10 @@ function createGrades(accountID) {
 
 // Main functions //
 app.post("/test-api/login.awp", (req, res) => {
-    const { identifiant, motdepasse } = JSON.parse(req.body.split("=")[1]);
+    const { identifiant, motdepasse } = JSON.parse(req.body.toString().split("=")[1]);
 
     if (!identifiant || !motdepasse) {
-        console.log("LOGIN - failed");
+        console.log("LOGIN - failed, did not receive username or password");
         return res.status(400).send({
             "code": 400,
             "token": "",
@@ -299,8 +293,8 @@ app.post("/test-api/login.awp", (req, res) => {
         });
     }
 
-    if (!PASSWORDS.includes(motdepasse)) {
-        console.log("LOGIN - failed");
+    if (!ALLOWED_PASSWORDS.includes(motdepasse)) {
+        console.log("LOGIN - failed, wrong password");
         return res.status(200).send({
             "code": 505,
             "token": "",
@@ -314,7 +308,7 @@ app.post("/test-api/login.awp", (req, res) => {
         "code": 200,
         "token": getRandomUUID(),
         "message": "",
-        "data": createLoginInfo(identifiant, identifiant == "demo-parent", motdepasse)
+        "data": createLoginInfo(identifiant, identifiant == process.env.PARENT_USERNAME, motdepasse)
     });
 });
 
