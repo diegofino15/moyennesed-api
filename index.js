@@ -280,7 +280,7 @@ function createGrades(accountID) {
 }
 
 // Main functions //
-app.post("/test-api/login.awp", (req, res) => {
+app.post("/test-api/v3/login.awp", (req, res) => {
     const { identifiant, motdepasse } = JSON.parse(req.body.toString().split("=")[1]);
 
     if (!identifiant || !motdepasse) {
