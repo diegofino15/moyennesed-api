@@ -174,7 +174,7 @@ function createGrades(accountID) {
         return {
             "id": ID,
             "devoir": "Devoir n°" + ID,
-            "codePeriode": "A00" + (getRandomInt(2) + 1),
+            "codePeriode": "A00" + (getRandomInt(3) + 1),
             "codeMatiere": disciplineID,
             "libelleMatiere": disciplines[disciplineID],
             "codeSousMatiere": "",
