@@ -167,7 +167,7 @@ function createGrades(accountID) {
     function createGrade() {
         const ID = getRandomInt(100000000);
         const disciplineID = getRandomItem(Object.keys(disciplines));
-        const inLetters = Math.random() < 0.05;
+        const inLetters = Math.random() < 0.1;
         const gradeOn = (Math.random() < 0.2) ? 10 : 20;
         const coefficient = process.env.GRADE_COEFFICIENTS ? (getRandomInt(3) + 1) : 0;
 
