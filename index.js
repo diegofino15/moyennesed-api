@@ -70,6 +70,12 @@ function createLoginInfo(username, is_parent, password, rec = false) {
                     // "nbJoursMaxRenduDevoirCDT": "-",
                     // "typeViewCDTDefaut": "-"
                 },
+                "classe": rec ? { // Only for students
+                    "id": getRandomInt(100),
+                    "code": (classLevel + 1).toString() + classLevelID,
+                    "libelle": classes[classLevel] + " " + classLevelID,
+                    // "estNote": -
+                } : {},
                 "profile": {
                     "sexe": gender, // Only for students
                     // "infoEDT": "-",
