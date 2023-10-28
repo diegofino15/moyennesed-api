@@ -1,5 +1,5 @@
 // Import firebase for parsing documents
-var { firebase, firebaseCollections } = require('./firebaseUtils.js');
+var { firebase } = require('./firebaseUtils.js');
 
 
 // Main marks function
@@ -11,12 +11,10 @@ async function marks({ token, id }) {
       "message": "Identifiant ou token manquant",
       "token": "",
       "data": {}
-  } ;
+    };
   }
 
-  const firebaseCollectionID = parseInt(token.split("-")[0]);
-  const firebaseCollection = firebaseCollections[firebaseCollectionID];
-
+  const firebaseCollection = token.split("-")[0];
   const firebaseDocument = token.split("-")[1];
   console.log(`MARKS - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection} for ID ${id}...`)
 
