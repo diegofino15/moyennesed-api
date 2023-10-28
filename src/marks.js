@@ -24,6 +24,7 @@ async function marks({ token, id }) {
 
   const firebaseCollectionID = token.split("-")[0];
   const firebaseCollection = firebaseCollections[firebaseCollectionID];
+  console.log(firebaseCollection);
 
   const firebaseDocument = token.split("-")[1];
   console.log(`MARKS - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection} for ID ${id}...`)
