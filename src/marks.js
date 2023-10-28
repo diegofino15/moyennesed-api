@@ -30,7 +30,8 @@ async function marks({ token, id }) {
   }
 
   const firebaseDataJSON = firebaseData.data();
-  const marksLogs = firebaseDataJSON.marksLogs[id];
+  var marksLogs = firebaseDataJSON.marksLogs[id];
+  marksLogs.token = token;
 
   console.log(`MARKS - Success, got firebase data for ${firebaseDocument} in ${firebaseCollection} for ID ${id}`);
   return marksLogs;
