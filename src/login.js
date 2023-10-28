@@ -3,7 +3,7 @@ require('dotenv').config();
 const PASSWORD = JSON.parse(process.env.PASSWORD);
 
 // Import firebase for parsing documents
-var { firebase } = require('./firebaseUtils.js');
+var { firebase, firebaseCollections } = require('./firebaseUtils.js');
 
 // Main login function
 async function login({ username, password }) {
@@ -27,7 +27,9 @@ async function login({ username, password }) {
       };
   }
 
-  const firebaseCollection = username.split("-")[1];
+  const firebaseCollectionID = username.split("-")[1];
+  const firebaseCollection = firebaseCollections[firebaseCollectionID];
+  
   const firebaseDocument = username.split("-")[2];
   console.log(`LOGIN - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection}...`)
 

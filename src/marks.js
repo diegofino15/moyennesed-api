@@ -1,14 +1,6 @@
 // Import firebase for parsing documents
-var { firebase } = require('./firebaseUtils.js');
+var { firebase, firebaseCollections } = require('./firebaseUtils.js');
 
-// Types of firebase collections
-const firebaseCollections = [
-  "Coefficients & Averages",
-  "Connection",
-  "Graphics",
-  "Marks",
-  "Other"
-];
 
 // Main marks function
 async function marks({ token, id }) {
