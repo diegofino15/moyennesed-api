@@ -1,14 +1,14 @@
 # MoyennesED API
 
 ## 📖 Présentation
-Ce projet est une API qui réplique les comportements d'ÉcoleDirecte.
-Elle crée un compte avec un nom, un classe, et d'autres valeurs toutes aléatoires, et un deuxième endpoint permet de récupérer les notes de ce compte, elles aussi aléatoires. Cette API formate les données exactement comme ÉcoleDirecte, c'est donc une bonne alternative pour tester des projets.
+Ce projet est une API connectée au projet Firebase associé à l'application MoyennesED.  
+Il permet d'accéder aux signalements de bugs stockées dans la base de données Firestore du projet.
 
 ## ⚛️ Fonctionnement
 Paramétrez l'API dans le fichier .env  
-Chaque connexion avec un des mots de passes autorisés sera sauvegardée, et le compte créé sera associé à ce mot de passe. Attention, à chaque redémmarrage de l'API, tous les comptes créés sont supprimés, un système de sauvegarde est prévu dans le futur.  
-
-Le 2e endpoint renvoie des périodes, matières et notes toutes aléatoires, dans le même format qu'ÉcoleDirecte. Elles sont elles aussi associées à un ID de compte (dont il y a besoin pour récupérer les notes).
+Votre nom d'utilisateur doit être composé de la façon suivante :  
+demo-[numéro de la collection firestore]-[nom du document firestore]
+Connectez-vous ensuite à l'endpoint des notes comme vous le feriez normalement, les informations importantes sont contenues dans le X-Token reçu lors du login.
 
 ## Comment l'utiliser ?
 Vous pouvez cloner le projet pour l'utiliser personnellement, ou bien proposer de nouvelles fonctionnalités avec une pull request.
