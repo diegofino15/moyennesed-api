@@ -7,7 +7,7 @@ Il permet d'accéder aux signalements de bugs stockées dans la base de données
 ## ⚛️ Fonctionnement
 Paramétrez l'API dans le fichier .env  
 Votre nom d'utilisateur doit être composé de la façon suivante :  
-demo-[numéro de la collection firestore]-[nom du document firestore]
+demo-[numéro de la collection firestore]-[nom du document firestore]  
 Connectez-vous ensuite à l'endpoint des notes comme vous le feriez normalement, les informations importantes sont contenues dans le X-Token reçu lors du login.
 
 ## Comment l'utiliser ?
