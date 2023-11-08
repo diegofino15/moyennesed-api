@@ -7,6 +7,8 @@ const { login } = require("./src/login.js");
 const { marks } = require('./src/marks.js');
 
 // Init app //
+const fs = require('fs');
+const https = require('https');
 const express = require("express");
 const app = express();
 
@@ -29,8 +31,10 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
     res.status(200).send(marksResponse); 
 });
 
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/fullchain.pem')
+};
+
 // Launch app //
-app.listen(
-    PORT,
-    () => console.log(`API running at : http://localhost:${PORT}`),
-);
+https.createServer(options, app).listen(PORT);
