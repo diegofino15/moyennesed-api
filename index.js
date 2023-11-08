@@ -1,11 +1,14 @@
 // API parameters //
-const PORT = 777;
+const PORT = 8000;
+const HOST = "0.0.0.0";
 
 // Load special environment variables
 require('dotenv').config();
 const ALLOWED_PASSWORDS = JSON.parse(process.env.ALLOWED_PASSWORDS);
 
 // Init app //
+const https = require("https");
+const fs = require("fs");
 const express = require("express");
 const app = express();
 
@@ -341,8 +344,15 @@ app.post("/test-api/v3/eleves/:id/notes.awp", (req, res) => {
     });
 });
 
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/fullchain.pem')
+};
+
+// Create server
+const server = https.createServer(options, app);
+
 // Launch app //
-app.listen(
-    PORT,
-    () => console.log(`API running at : http://localhost:${PORT}`),
-);
+server.listen(PORT, HOST, () => {
+    console.log(`Server running at https://${HOST}:${PORT}/`);
+});
