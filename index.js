@@ -1,7 +1,7 @@
 // Import environment variables
 require('dotenv').config();
 const PORT = JSON.parse(process.env.PORT);
-const HOST = JSON.parse(process.env.HOST);
+const HOST = process.env.HOST;
 
 // API functions
 const { login } = require("./src/login.js");
