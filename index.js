@@ -1,6 +1,7 @@
 // Import environment variables
 require('dotenv').config();
 const PORT = JSON.parse(process.env.PORT);
+const HOST = JSON.parse(process.env.HOST);
 
 // API functions
 const { login } = require("./src/login.js");
@@ -36,5 +37,10 @@ const options = {
     cert: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/fullchain.pem')
 };
 
+// Create server
+const server = https.createServer(options, app);
+
 // Launch app //
-https.createServer(options, app).listen(PORT);
+server.listen(PORT, HOST, () => {
+    console.log(`Server running at https://${HOST}:${PORT}/`);
+});
