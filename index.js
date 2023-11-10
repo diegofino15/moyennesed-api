@@ -33,8 +33,8 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
 });
 
 const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/api.moyennesed.my.to/fullchain.pem')
+    key: fs.readFileSync('./keys/privkey.pem'),
+    cert: fs.readFileSync('./keys/fullchain.pem')
 };
 
 // Create server
