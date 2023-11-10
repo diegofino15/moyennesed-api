@@ -6,9 +6,8 @@ Elle crée un compte avec un nom, un classe, et d'autres valeurs toutes aléatoi
 
 ## ⚛️ Fonctionnement
 Paramétrez l'API dans le fichier .env  
-Chaque connexion avec un des mots de passes autorisés sera sauvegardée, et le compte créé sera associé à ce mot de passe. Attention, à chaque redémmarrage de l'API, tous les comptes créés sont supprimés, un système de sauvegarde est prévu dans le futur.  
-
-Le 2e endpoint renvoie des périodes, matières et notes toutes aléatoires, dans le même format qu'ÉcoleDirecte. Elles sont elles aussi associées à un ID de compte (dont il y a besoin pour récupérer les notes).
+Chaque mot de passe autorisé (dans le fichier .env) sera associé à un compte, qui sera créé aléatoirement lors de la première connexion et puis sauvegardé dans un dossier cache.  
+L'endpoint pour récupérer les notes fonctionne de la même façon, chaque ID de compte est associé à des notes qui sont ensuite sauvegardées dans le dossier cache.  
 
 ## Comment l'utiliser ?
 Vous pouvez cloner le projet pour l'utiliser personnellement, ou bien proposer de nouvelles fonctionnalités avec une pull request.
