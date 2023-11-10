@@ -30,7 +30,7 @@ async function login({ username, password }) {
       };
   }
 
-  const isParent = password.includes("parent");
+  const isParent = username.includes("parent");
 
   try {
     const loginData = fs.readFileSync(`./cache/login-${password}-${isParent ? "parent" : "student"}.json`);
