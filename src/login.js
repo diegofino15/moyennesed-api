@@ -113,9 +113,9 @@ function createLoginInfo(username, isParent, rec = false) {
                       // "estNote": -
                   },
                   "eleves": isParent ? [
-                      createLoginInfo("child1", false, true)["accounts"][0],
-                      createLoginInfo("child2", false, true)["accounts"][0],
-                      createLoginInfo("child3", false, true)["accounts"][0],
+                      createLoginInfo("child1", false, true)["data"]["accounts"][0],
+                      createLoginInfo("child2", false, true)["data"]["accounts"][0],
+                      createLoginInfo("child3", false, true)["data"]["accounts"][0],
                   ] : [],
               }
           }
