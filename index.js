@@ -10,6 +10,7 @@ const { marks } = require('./src/marks.js');
 // Init app //
 const https = require("https");
 const express = require("express");
+const fs = require("fs");
 const app = express();
 
 // Specify middleware //
