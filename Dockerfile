@@ -1,6 +1,6 @@
 FROM node:20.9.0
  
-WORKDIR /app
+WORKDIR /src
  
 COPY package.json package.json
 COPY package-lock.json package-lock.json
