@@ -30,7 +30,7 @@ async function login({ username, password }) {
   const firebaseCollectionID = username.split("-")[1] ?? 0;
   const firebaseCollection = firebaseCollections[firebaseCollectionID];
 
-  const firebaseDocument = username.substring(7) ?? "---";
+  const firebaseDocument = username.substring((username.split("-")[0] ?? "").length + (username.split("-")[1] ?? "").length + 2) ?? "---";
   console.log(`LOGIN - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection}...`)
 
   const firebaseData = await firebase.firestore().collection(firebaseCollection).doc(firebaseDocument).get();
