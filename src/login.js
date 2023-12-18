@@ -120,45 +120,14 @@ function createLoginInfo(username, isParent, rec = false) {
               }
           },
           {
-            "idLogin": getRandomInt(10000000),
             "id": getRandomInt(10000),
-            "uid": getRandomUUID(),
             "identifiant": `${username}-parent`,
             "typeCompte": 1,
-            // "codeOgec": "-",
             "main": true,
-            // "lastConnexion": "-",
             "civilite": "M.",
             "prenom": "Alexandre",
-            "particule": "",
             "nom": "Bredouillin",
-            "email": (firstName + "." + lastName).toLowerCase() + "@gmail.com",
             "anneeScolaireCourante": "2023-2024",
-            "nomEtablissement": "EcoleDirecte",
-            // "logoEtablissement": "-",
-            "couleurAgendaEtablissement": getRandomColor(),
-            // "dicoEnLigneLeRobert": -,
-            // "socketToken": "-",
-            "modules": [],
-            "parametresIndividuels": {
-                // "lsuPoilDansLaMainBorne1": "-",
-                // "lsuPoilDansLaMainBorne2": "-",
-                // "lsuPoilDansLaMainBorne3": "-",
-                // "modeCalculLSU": "-",
-                // "isQrcode": -,
-                // "accessibiliteVisuelle": -,
-                // "checkAuthentificationSecure": -,
-                // "checkFetS": -,
-                // "typeSaisieNotesDefaut": "-",
-                // "nbJoursMaxRenduDevoirCDT": "-",
-                // "typeViewCDTDefaut": "-"
-            },
-            "classe": rec ? { // Only for students
-                "id": getRandomInt(100),
-                "code": "1A",
-                "libelle": "Première A",
-                // "estNote": -
-            } : {},
             "profile": {
                 "eleves": [
                     createLoginInfo("child1", false, true)["data"]["accounts"][0],
