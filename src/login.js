@@ -119,7 +119,7 @@ function createLoginInfo(username, isParent, rec = false) {
                   ] : [],
               }
           },
-          isParent ? {
+          !rec ? {
             "id": getRandomInt(10000),
             "identifiant": `${username}-parent`,
             "typeCompte": 1,
