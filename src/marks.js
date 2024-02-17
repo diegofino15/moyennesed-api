@@ -117,8 +117,8 @@ function createMarks() {
           "date": getRandomDate(),
           "dateSaisie": getRandomDate(),
           // "valeurisee": -,
-          "moyenneClasse": ((8 / 20 * gradeOn) + getRandomInt(gradeOn - (8 / 20 * gradeOn))).toString() + ((Math.random() < 0.2) ? ",5" : "")
-          // "elementsProgramme": []
+          "moyenneClasse": ((8 / 20 * gradeOn) + getRandomInt(gradeOn - (8 / 20 * gradeOn))).toString() + ((Math.random() < 0.2) ? ",5" : ""),
+          "elementsProgramme": []
       };
   }
   
