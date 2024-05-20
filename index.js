@@ -36,10 +36,7 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
     res.status(200).send(loginResponse);
 });
 
-const options = {
-    key: fs.readFileSync('./keys/privkey.pem'),
-    cert: fs.readFileSync('./keys/fullchain.pem')
-};
+const options = {};
 
 // Create server
 const server = https.createServer(options, app);
