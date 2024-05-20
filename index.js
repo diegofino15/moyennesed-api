@@ -13,6 +13,11 @@ const app = express();
 // Specify middleware //
 app.use(express.text());
 
+// For healthcheck
+app.get("/", (req, res) => {
+    res.status(200).send("OK");
+});
+
 // Main functions //
 app.post("/test-api/v3/login.awp", async (req, res) => {
     const { identifiant, motdepasse } = JSON.parse(req.body.toString().split("=")[1]);
