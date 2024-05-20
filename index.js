@@ -36,6 +36,7 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
 });
 
 // Launch app //
+console.log(process.env.PASSWORD);
 app.listen(
     PORT,
     () => console.log(`API running at : http://localhost:${PORT}`),
