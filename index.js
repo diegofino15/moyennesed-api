@@ -8,9 +8,8 @@ const { login } = require("./src/login.js");
 const { marks } = require('./src/marks.js');
 
 // Init app //
-const https = require("https");
+const http = require("http");
 const express = require("express");
-const fs = require("fs");
 const app = express();
 
 // Specify middleware //
@@ -39,7 +38,7 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
 const options = {};
 
 // Create server
-const server = https.createServer(options, app);
+const server = http.createServer(app, options);
 
 // Launch app //
 server.listen(PORT, HOST, () => {
