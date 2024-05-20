@@ -3,6 +3,4 @@
 # dependencies
 node_modules/
 
-private/
-
-cache/*
+*.env
