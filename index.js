@@ -16,6 +16,9 @@ app.use(express.text());
 // Helper functions //
 require("./src/helper.js")();
 
+app.get("/healthcheck", (req, res) => {
+    res.status(200).send("OK");
+})
 
 // Main functions //
 app.post("/test-api/v3/login.awp", async (req, res) => {
