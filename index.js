@@ -1,14 +1,12 @@
 // Load special environment variables
 require('dotenv').config();
 const PORT = process.env.PORT;
-const HOST = process.env.HOST;
 
 // API functions
-const { login } = require("./login.js");
-const { marks } = require('./marks.js');
+const { login } = require("./src/login.js");
+const { marks } = require('./src/marks.js');
 
 // Init app //
-const http = require("http");
 const express = require("express");
 const app = express();
 
@@ -16,7 +14,7 @@ const app = express();
 app.use(express.text());
 
 // Helper functions //
-require("./helper.js")();
+require("./src/helper.js")();
 
 
 // Main functions //
@@ -41,6 +39,7 @@ const options = {};
 const server = http.createServer(app, options);
 
 // Launch app //
-server.listen(PORT, HOST, () => {
-    console.log(`Server running at https://${HOST}:${PORT}/`);
-});
+app.listen(
+    PORT,
+    () => console.log(`API running at : http://localhost:${PORT}`),
+);
