@@ -1,5 +1,5 @@
 require('dotenv').config();
-console.log("password : " + process.env.PASSWORD);
+console.log("password : " + process.env.PRIVATE_KEY);
 
 // Import environment variables
 const PORT = JSON.parse(process.env.PORT);
