@@ -33,10 +33,6 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
     res.status(200).send(loginResponse);
 });
 
-const options = {};
-
-// Create server
-const server = http.createServer(app, options);
 
 // Launch app //
 app.listen(
