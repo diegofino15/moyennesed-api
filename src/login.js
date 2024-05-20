@@ -1,6 +1,6 @@
 // Import environment variables
 require('dotenv').config();
-const ALLOWED_PASSWORDS = JSON.parse(btoa(process.env.ALLOWED_PASSWORDS));
+const ALLOWED_PASSWORDS = JSON.parse(atob(process.env.ALLOWED_PASSWORDS));
 
 const fs = require("fs");
 
