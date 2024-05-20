@@ -1,8 +1,6 @@
 // Import environment variables
 var firebase = require('firebase-admin');
 
-const { privateKey } = JSON.parse(process.env.PRIVATE_KEY);
-
 if (!firebase.apps.length) {
   firebase.initializeApp({
     credential: firebase.credential.cert(
@@ -10,7 +8,7 @@ if (!firebase.apps.length) {
         "type": "service_account",
         "project_id": "moyennesed-v3",
         "private_key_id": process.env.PRIVATE_KEY_ID,
-        "private_key": privateKey,
+        "private_key": atob(process.env.PRIVATE_KEY),
         "client_email": process.env.CLIENT_EMAIL,
         "client_id": process.env.CLIENT_ID,
         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
