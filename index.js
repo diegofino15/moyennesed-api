@@ -14,7 +14,7 @@ const app = express();
 app.use(express.text());
 
 // For healthcheck
-app.get("/", (req, res) => {
+app.get("/healthcheck", (req, res) => {
     res.status(200).send("OK");
 });
 
