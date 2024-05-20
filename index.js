@@ -1,5 +1,4 @@
 // Import environment variables
-require('dotenv').config();
 const PORT = JSON.parse(process.env.PORT);
 
 // API functions

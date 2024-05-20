@@ -1,5 +1,4 @@
 // Import environment variables
-require('dotenv').config();
 var firebase = require('firebase-admin');
 
 if (!firebase.apps.length) {

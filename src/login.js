@@ -1,5 +1,4 @@
 // Import environment variables
-require('dotenv').config();
 const PASSWORD = JSON.parse(process.env.PASSWORD);
 
 // Import firebase for parsing documents
