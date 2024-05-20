@@ -4,8 +4,8 @@ const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
 // API functions
-const { login } = require("./src/login.js");
-const { marks } = require('./src/marks.js');
+const { login } = require("./login.js");
+const { marks } = require('./marks.js');
 
 // Init app //
 const http = require("http");
@@ -16,7 +16,7 @@ const app = express();
 app.use(express.text());
 
 // Helper functions //
-require("./src/helper.js")();
+require("./helper.js")();
 
 
 // Main functions //
