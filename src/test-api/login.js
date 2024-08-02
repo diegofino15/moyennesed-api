@@ -27,7 +27,7 @@ async function login({ username, password }) {
       const accountData = require(`../../accounts/${accountUUID}/data.json`);
       return {
         "code": 200,
-        "token": getRandomUUID(),
+        "token": accountUUID,
         "message": "",
         "data": accountData,
       };
@@ -60,7 +60,7 @@ async function login({ username, password }) {
 
     return {
       "code": 200,
-      "token": getRandomUUID(),
+      "token": accountUUID,
       "message": "",
       "data": accountData,
     };
