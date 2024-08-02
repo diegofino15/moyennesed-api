@@ -5,3 +5,7 @@ node_modules/
 
 *.env.local
 .DS_STORE
+
+# private files
+private/
+old/

@@ -19,7 +19,7 @@ module.exports = function() {
         "SP": "Sport",
     };
 
-    this.getRandomInt = function(max){
+    this.getRandomInt = function (max){
         return Math.floor(Math.random() * max);
     };
     this.getRandomUUID = function (){
@@ -38,15 +38,15 @@ module.exports = function() {
         return ("0" + this.getRandomItem("67") + parseInt(Math.random().toFixed(8).replace("0.", ""))).replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1-$2-$3-$4-$5');
     };
     this.getRandomDate = function (){
-        const from = new Date("2022", "09", "04");
-        const to = new Date("2023", "09", "04");
+        const from = new Date("2024", "09", "04");
+        const to = new Date("2025", "09", "04");
         return new Date(from.getTime() + Math.random() * (to.getTime() - from.getTime())).toISOString().split("T")[0];
     };
     this.getRandomPersonName = function (){
         const gender = this.getRandomItem(["M", "F"]);
         return this.getRandomItem(prefixes) + " " + (this.getRandomItem(lastNames) + " " + this.getRandomItem(this.firstNames[gender]).charAt(0) + ".").toUpperCase();
     };
-    this.getRandomColor = function() {
+    this.getRandomColor = function (){
         return "#" + Math.floor(Math.random() * 16777215).toString(16);
-    }
+    };
 }
