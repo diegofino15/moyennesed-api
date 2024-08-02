@@ -12,6 +12,7 @@ app.use(express.text());
 // Check if cache folder exists
 const fs = require("fs");
 if (!fs.existsSync("./accounts/")) { fs.mkdirSync("./accounts/"); }
+if (!fs.existsSync("./accounts/accounts.json")) { fs.writeFileSync("./accounts/accounts.json", JSON.stringify({"createdAccounts": {}})) }
 
 // Define endpoints
 const { defineEndpoints } = require("./src/enpoints.js");
