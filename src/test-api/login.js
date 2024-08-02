@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 
-const { getRandomInt, getRandomUUID, getRandomItem, firstNames, lastNames, getRandomColor, classes, getRandomPhoneNumber } = require("../util");
+const { getRandomInt, getRandomUUID, getRandomItem, firstNames, lastNames, classes } = require("../util");
 
 
 // Main function used to login
