@@ -3,6 +3,5 @@
 # dependencies
 node_modules/
 
-private/
-
-cache/*
+*.env.local
+.DS_STORE
