@@ -18,13 +18,13 @@ async function login({ username, password }) {
   }
 
   // Check if account already exists
-  const { createdAccounts } = require("../../accounts/accounts.json");
+  const { createdAccounts } = JSON.parse(fs.readFileSync("./accounts/accounts.json"));
   if (Object.keys(createdAccounts).includes(username)) {
     // Check if password is correct
     if (createdAccounts[username].password == password) {
       console.log(`LOGIN - Success, user ${username} exists in cache`);
       const accountUUID = createdAccounts[username].uuid;
-      const accountData = require(`../../accounts/${accountUUID}/data.json`);
+      const accountData = JSON.parse(fs.readFileSync(`./accounts/${accountUUID}/data.json`))
       return {
         "code": 200,
         "token": accountUUID,
