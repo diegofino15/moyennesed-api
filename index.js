@@ -23,7 +23,7 @@ app.get("/healthcheck", (req, res) => {
 app.post("/test-api/v3/login.awp", async (req, res) => {
     const { identifiant, motdepasse } = JSON.parse(req.body.toString().split("=")[1]);
 
-    const loginResponse = await login({ username: identifiant, password: motdepasse });
+    const loginResponse = await login({ username: decodeURIComponent(identifiant), password: motdepasse });
     res.status(200).send(loginResponse);
 });
 
@@ -31,7 +31,7 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
     const { id } = req.params;
     const token = req.header("x-token");
     
-    const marksResponse = await marks({ token: token, id: id });
+    const marksResponse = await marks({ token: decodeURIComponent(token), id: id });
     res.status(200).send(marksResponse); 
 });
 
