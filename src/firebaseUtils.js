@@ -21,4 +21,12 @@ if (!firebase.apps.length) {
   });
 }
 
-module.exports = { firebase };
+const firebaseCollections = [
+  "Coefficients & Averages",
+  "Connection",
+  "Graphics",
+  "Marks",
+  "Other"
+]
+
+module.exports = { firebase, firebaseCollections };

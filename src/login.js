@@ -2,7 +2,7 @@
 const PASSWORD = JSON.parse(process.env.PASSWORD);
 
 // Import firebase for parsing documents
-var { firebase } = require('./firebaseUtils.js');
+var { firebase, firebaseCollections } = require('./firebaseUtils.js');
 
 // Main login function
 async function login({ username, password }) {
@@ -26,7 +26,8 @@ async function login({ username, password }) {
       };
   }
 
-  const firebaseCollection = username.split("-")[1];
+  const firebaseCollectionIndex = parseInt(username.split("-")[1]);
+  const firebaseCollection = firebaseCollections[firebaseCollectionIndex];
   const firebaseDocument = username.split("-")[2];
   console.log(`LOGIN - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection}...`)
 
@@ -44,7 +45,7 @@ async function login({ username, password }) {
 
   const firebaseDataJSON = firebaseData.data();
   var loginLogs = firebaseDataJSON.loginLogs;
-  loginLogs.token = `${firebaseCollection}-${firebaseDocument}`; // Hack to save the firebase document ID as the token (for parsing marks later)
+  loginLogs.token = `${firebaseCollectionIndex}-${firebaseDocument}`; // Hack to save the firebase document ID as the token (for parsing marks later)
 
   console.log(`LOGIN - Success, got firebase data for ${firebaseDocument} in ${firebaseCollection}`);
   return loginLogs;
