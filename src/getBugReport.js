@@ -1,10 +1,10 @@
 // Import firebase for parsing documents
 var { firebase } = require('./firebaseUtils.js');
 
-// Main marks function
-async function marks({ token, id }) {
+// Parse special data from bug report (by title)
+async function getBugReport({ title, token, id }) {
   if (!token || !id) {
-    console.log("MARKS - Failed, did not receive token or id");
+    console.log(`${title.toUpperCase()} - Failed, did not receive token or id`);
     return {
       "code": 400,
       "message": "Identifiant ou token manquant",
@@ -14,12 +14,12 @@ async function marks({ token, id }) {
   }
 
   const firebaseDocument = token;
-  console.log(`MARKS - Parsing firebase data for ${firebaseDocument} in bugReports for ID ${id}...`)
+  console.log(`${title.toUpperCase()} - Parsing firebase data for ${firebaseDocument} in bugReports for ID ${id}...`)
 
   const firebaseData = await firebase.firestore().collection("bugReports").doc(firebaseDocument).get();
 
   if (!firebaseData.exists) {
-      console.log("MARKS - Failed, firebase data not found");
+      console.log(`${title.toUpperCase()} - Failed, firebase data not found`);
       return {
         "code": 400,
         "token": "",
@@ -29,10 +29,10 @@ async function marks({ token, id }) {
   }
 
   const firebaseDataJSON = firebaseData.data();
-  const marksLogs = firebaseDataJSON.logs.marks[id];
+  const logs = firebaseDataJSON.logs[title][id];
 
-  console.log(`MARKS - Success, got firebase data for ${firebaseDocument} in bugReports for ID ${id}`);
-  return marksLogs;
+  console.log(`${title.toUpperCase()} - Success, got firebase data for ${firebaseDocument} in bugReports for ID ${id}`);
+  return logs;
 }
 
-module.exports = { marks };
+module.exports = { getBugReport };
