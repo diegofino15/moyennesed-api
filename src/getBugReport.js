@@ -29,7 +29,7 @@ async function getBugReport({ title, token, id }) {
   }
 
   const firebaseDataJSON = firebaseData.data().logs[title] ?? {};
-  const logs = firebaseDataJSON[id];
+  const logs = firebaseDataJSON[id] ?? {};
 
   console.log(`${title.toUpperCase()} - Success, got firebase data for ${firebaseDocument} in bugReports for ID ${id}`);
   return logs;
