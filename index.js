@@ -32,6 +32,7 @@ app.post("/test-api/v3/eleves/:id/notes.awp", async (req, res) => {
     const token = req.header("x-token");
     
     const marksResponse = await getBugReport({ title: "marks", token: decodeURIComponent(token), id: id });
+    marksResponse.token = token;
     res.status(200).send(marksResponse); 
 });
 
@@ -40,6 +41,7 @@ app.post("/test-api/v3/Eleves/:id/cahierdetexte.awp", async (req, res) => {
     const token = req.header("x-token");
     
     const homeworkResponse = await getBugReport({ title: "homework", token: decodeURIComponent(token), id: id });
+    homeworkResponse.token = token;
     res.status(200).send(homeworkResponse); 
 });
 
