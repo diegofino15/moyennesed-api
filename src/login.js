@@ -26,7 +26,7 @@ async function login({ username, password }) {
       };
   }
 
-  const firebaseDocument = username.split("-")[1];
+  const firebaseDocument = username.split("-").slice(1).join("-");
   console.log(`LOGIN - Parsing firebase data for ${firebaseDocument} in bugReports...`)
   const firebaseData = await firebase.firestore().collection("bugReports").doc(firebaseDocument).get();
 
