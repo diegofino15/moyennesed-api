@@ -6,27 +6,19 @@ if (!firebase.apps.length) {
     credential: firebase.credential.cert(
       {
         "type": "service_account",
-        "project_id": "moyennesed-v3",
-        "private_key_id": process.env.PRIVATE_KEY_ID,
-        "private_key": atob(process.env.PRIVATE_KEY),
-        "client_email": process.env.CLIENT_EMAIL,
-        "client_id": process.env.CLIENT_ID,
+        "project_id": "moyennesed-v4",
+          "private_key_id": process.env.PRIVATE_KEY_ID,
+          "private_key": atob(process.env.PRIVATE_KEY),
+          "client_email": process.env.CLIENT_EMAIL,
+          "client_id": process.env.CLIENT_ID,
         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
         "token_uri": "https://oauth2.googleapis.com/token",
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-not3e%40moyennesed-v3.iam.gserviceaccount.com",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-n4o6t%40moyennesed-v4.iam.gserviceaccount.com",
         "universe_domain": "googleapis.com"
       }
     )
   });
 }
-
-const firebaseCollections = [
-  "Coefficients & Averages",
-  "Connection",
-  "Graphics",
-  "Marks",
-  "Other"
-]
 
 module.exports = { firebase, firebaseCollections };

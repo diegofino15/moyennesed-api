@@ -1,5 +1,5 @@
 // Import firebase for parsing documents
-var { firebase, firebaseCollections } = require('./firebaseUtils.js');
+var { firebase } = require('./firebaseUtils.js');
 
 // Main marks function
 async function marks({ token, id }) {
@@ -13,12 +13,10 @@ async function marks({ token, id }) {
   } ;
   }
 
-  const firebaseCollectionIndex = parseInt(token.split("-")[0]);
-  const firebaseCollection = firebaseCollections[firebaseCollectionIndex];
-  const firebaseDocument = token.split("-")[1];
-  console.log(`MARKS - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection} for ID ${id}...`)
+  const firebaseDocument = token;
+  console.log(`MARKS - Parsing firebase data for ${firebaseDocument} in bugReports for ID ${id}...`)
 
-  const firebaseData = await firebase.firestore().collection(firebaseCollection).doc(firebaseDocument).get();
+  const firebaseData = await firebase.firestore().collection("bugReports").doc(firebaseDocument).get();
 
   if (!firebaseData.exists) {
       console.log("MARKS - Failed, firebase data not found");
@@ -31,9 +29,9 @@ async function marks({ token, id }) {
   }
 
   const firebaseDataJSON = firebaseData.data();
-  const marksLogs = firebaseDataJSON.marksLogs[id];
+  const marksLogs = firebaseDataJSON.logs.marks[id];
 
-  console.log(`MARKS - Success, got firebase data for ${firebaseDocument} in ${firebaseCollection} for ID ${id}`);
+  console.log(`MARKS - Success, got firebase data for ${firebaseDocument} in bugReports for ID ${id}`);
   return marksLogs;
 }
 

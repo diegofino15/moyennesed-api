@@ -2,7 +2,7 @@
 const PASSWORD = JSON.parse(process.env.PASSWORD);
 
 // Import firebase for parsing documents
-var { firebase, firebaseCollections } = require('./firebaseUtils.js');
+var { firebase } = require('./firebaseUtils.js');
 
 // Main login function
 async function login({ username, password }) {
@@ -26,12 +26,9 @@ async function login({ username, password }) {
       };
   }
 
-  const firebaseCollectionIndex = parseInt(username.split("-")[1]);
-  const firebaseCollection = firebaseCollections[firebaseCollectionIndex];
-  const firebaseDocument = username.split("-")[2];
-  console.log(`LOGIN - Parsing firebase data for ${firebaseDocument} in ${firebaseCollection}...`)
-
-  const firebaseData = await firebase.firestore().collection(firebaseCollection).doc(firebaseDocument).get();
+  const firebaseDocument = username.split("-")[1];
+  console.log(`LOGIN - Parsing firebase data for ${firebaseDocument} in bugReports...`)
+  const firebaseData = await firebase.firestore().collection("bugReports").doc(firebaseDocument).get();
 
   if (!firebaseData.exists) {
       console.log("LOGIN - Failed, firebase data not found");
@@ -44,10 +41,10 @@ async function login({ username, password }) {
   }
 
   const firebaseDataJSON = firebaseData.data();
-  var loginLogs = firebaseDataJSON.loginLogs;
-  loginLogs.token = `${firebaseCollectionIndex}-${firebaseDocument}`; // Hack to save the firebase document ID as the token (for parsing marks later)
+  var loginLogs = firebaseDataJSON.logs.login;
+  loginLogs.token = `${firebaseDocument}`; // Hack to save the firebase document ID as the token (for parsing marks or homeworks later)
 
-  console.log(`LOGIN - Success, got firebase data for ${firebaseDocument} in ${firebaseCollection}`);
+  console.log(`LOGIN - Success, got firebase data for ${firebaseDocument} in bugReports !`);
   return loginLogs;
 }
 
