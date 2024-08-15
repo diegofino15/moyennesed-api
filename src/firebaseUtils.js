@@ -21,4 +21,4 @@ if (!firebase.apps.length) {
   });
 }
 
-module.exports = { firebase, firebaseCollections };
+module.exports = { firebase };
