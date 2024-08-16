@@ -34,9 +34,21 @@ function defineEndpoints(app) {
   app.post("/test-api/v3/Eleves/:id/cahierdetexte.awp", async (req, res) => {
     const { id } = req.params;
     const token = parseToken(req);
+    const verbe = req.query.verbe;
 
-    const response = await getAllHomework({ accountID: id, token: token });
-    res.status(200).send(response);
+    if (verbe == "get") {
+      const response = await getAllHomework({ accountID: id, token: token });
+      res.status(200).send(response);
+    } else {
+      const { idDevoirsEffectues, idDevoirsNonEffectues } = parseBody(req);
+      var homeworkID = null;
+      var status = false;
+      if (idDevoirsEffectues.length > 0) { homeworkID = idDevoirsEffectues[0]; status = true; }
+      else { homeworkID = idDevoirsNonEffectues[0]; }
+
+      const response = await setHomeworkAsDone({ accountID: id, homeworkID: homeworkID, status: status, token: token });
+      res.status(200).send(response);
+    }
   });
   // Get homework for given day
   app.post("/test-api/v3/Eleves/:id/cahierdetexte/:day.awp", async (req, res) => {
@@ -44,20 +56,6 @@ function defineEndpoints(app) {
     const token = parseToken(req);
 
     const response = await getSpecificHomework({ accountID: id, day: day, token: token });
-    res.status(200).send(response);
-  });
-  // Set homework as done
-  app.put("/test-api/v3/Eleves/:id/cahierdetexte.awp", async (req, res) => {
-    const { id } = req.params;
-    const token = parseToken(req);
-    const { idDevoirsEffectues, idDevoirsNonEffectues } = parseBody(req);
-
-    var homeworkID = null;
-    var status = false;
-    if (idDevoirsEffectues.length > 0) { homeworkID = idDevoirsEffectues[0]; status = true; }
-    else { homeworkID = idDevoirsNonEffectues[0]; }
-
-    const response = await setHomeworkAsDone({ accountID: id, homeworkID: homeworkID, status: status, token: token });
     res.status(200).send(response);
   });
 }

@@ -28,6 +28,8 @@ async function getMarks({ accountID, token }) {
       "data": marksData,
     };
   } else { // Create new fake marks
+    console.log(`MARKS - Creating new marks for ID ${accountID}...`);
+
     const marksData = createFakeMarks();
 
     // Save the marks
