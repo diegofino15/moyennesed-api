@@ -111,6 +111,10 @@ async function getSpecificHomework({ accountID, day, token }) {
           "contenuDeSeance": {
             "contenu": "PHA+Q2VjaSBlc3QgdW4gZXhlbXBsZSBkZSBjb250ZW51IGRlIHPDqWFuY2U8L3A+",
           },
+          "documents": [
+            { "id": getRandomInt(10000), "title": "Fichier attaché n°1.mp4", "taille": "345", "type": "mp4" },
+            { "id": getRandomInt(10000), "title": "Résumé du chapitre - WORD DOCUMENT - À ne pas partager.docx", "taille": "7762", "type": "docx" },
+          ],
         },
       });
     });
