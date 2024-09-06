@@ -53,7 +53,7 @@ function createFakeHomework() {
 
   for (let i = 0; i < nbOfHomeworkDays; i++) {
     let homeworkDate = now + i * 24 * 60 * 60 * 1000;
-    let stringDate = new Date(homeworkDate).toLocaleDateString("fr-FR").replaceAll("/", "-");
+    let stringDate = new Date(homeworkDate).toISOString().slice(0, 10);
     homeworks[stringDate] = [];
     const nbOfHomeworks = getRandomInt(2) + 1;
     for (let j = 0; j < nbOfHomeworks; j++) {
@@ -64,7 +64,7 @@ function createFakeHomework() {
         "codeMatiere": subject,
         "matiere": disciplines[subject],
         "effectue": false,
-        "donneLe": new Date(dateGiven),
+        "donneLe": new Date(dateGiven).toISOString().slice(0, 10),
         "interrogation": Math.random() > 0.9, // 1/10 chance
       });
     }
