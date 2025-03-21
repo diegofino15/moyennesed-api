@@ -7,7 +7,7 @@ const express = require("express");
 const app = express();
 
 // Specify middleware
-app.use(express.text());
+app.use(express.urlencoded());
 
 // Check if cache folder exists
 const fs = require("fs");

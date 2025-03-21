@@ -61,7 +61,7 @@ function defineEndpoints(app) {
 }
 
 // Helper functions
-function parseBody(req) { return JSON.parse(req.body.toString().split("=")[1]); }
+function parseBody(req) { return JSON.parse(req.body["data"]); }
 function parseToken(req) { return req.header("x-token"); }
 
 
