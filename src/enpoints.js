@@ -61,8 +61,12 @@ function defineEndpoints(app) {
 }
 
 // Helper functions
-function parseBody(req) { return JSON.parse(req.body["data"]); }
-function parseToken(req) { return req.header("x-token"); }
+function parseBody(req) {
+  return JSON.parse(req.body.data.split("=")[1]);
+}
+function parseToken(req) {
+  return req.body.headers["X-Token"];
+}
 
 
 module.exports = { defineEndpoints };
