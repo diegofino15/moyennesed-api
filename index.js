@@ -1,3 +1,6 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 // Load special environment variables
 require('dotenv').config();
 const PORT = process.env.PORT;

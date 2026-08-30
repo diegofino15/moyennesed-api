@@ -1,3 +1,6 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 require('dotenv').config();
 const fs = require('fs');
 
@@ -220,4 +223,4 @@ function createFakeMarks() {
 }
 
 
-module.exports = { getMarks };
+export { getMarks };

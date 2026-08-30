@@ -48,6 +48,6 @@ function getRandomColor() {
 };
 
 
-module.exports = {
+export {
     getRandomInt, getRandomUUID, getRandomItem, getRandomPhoneNumber, getRandomDate, getRandomPersonName, getRandomColor, prefixes, firstNames, lastNames, classes, disciplines
 }

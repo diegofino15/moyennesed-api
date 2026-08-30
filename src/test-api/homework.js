@@ -1,3 +1,6 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 const fs = require('fs');
 
 const { getRandomInt, getRandomItem, disciplines, getRandomPersonName } = require("../util");
@@ -168,4 +171,4 @@ async function setHomeworkAsDone({ accountID, homeworkID, status, token }) {
 }
 
 
-module.exports = { getAllHomework, getSpecificHomework, setHomeworkAsDone };
+export { getAllHomework, getSpecificHomework, setHomeworkAsDone };

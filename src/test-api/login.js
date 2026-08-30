@@ -1,3 +1,6 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 require('dotenv').config();
 const fs = require('fs');
 
@@ -141,4 +144,4 @@ function createFakeAccountData({ accountID, isParent=false, _rec=false }) {
   };
 }
 
-module.exports = { login };
+export { login };
