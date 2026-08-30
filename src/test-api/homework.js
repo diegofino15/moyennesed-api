@@ -1,9 +1,5 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-const fs = require('fs');
-
-const { getRandomInt, getRandomItem, disciplines, getRandomPersonName } = require("../util");
+import fs from 'fs';
+import { getRandomInt, getRandomItem, disciplines, getRandomPersonName } from '../util.js';
 
 
 // Returns an overview of all the next homeworks to do

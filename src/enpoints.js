@@ -1,9 +1,6 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-const { login } = require('./test-api/login');
-const { getMarks } = require('./test-api/marks');
-const { getAllHomework, getSpecificHomework, setHomeworkAsDone } = require('./test-api/homework');
+import { login } from './test-api/login.js';
+import { getMarks } from './test-api/marks.js';
+import { getAllHomework, getSpecificHomework, setHomeworkAsDone } from './test-api/homework.js';
 
 
 // Functions that defines all the open endpoints of the API

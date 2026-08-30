@@ -1,10 +1,6 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-require('dotenv').config();
-const fs = require('fs');
-
-const { getRandomPersonName, disciplines, getRandomInt, getRandomItem, getRandomDate } = require("../util");
+import 'dotenv/config';
+import fs from 'fs';
+import { getRandomPersonName, disciplines, getRandomInt, getRandomItem, getRandomDate } from '../util.js';
 
 
 // Main function used to get all marks of an account

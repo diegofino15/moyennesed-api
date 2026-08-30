@@ -1,24 +1,21 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+import 'dotenv/config';
+import express from 'express';
+import fs from 'fs';
+import { defineEndpoints } from './src/enpoints.js';
 
-// Load special environment variables
-require('dotenv').config();
 const PORT = process.env.PORT;
 
 // Init app
-const express = require("express");
 const app = express();
 
 // Specify middleware
 app.use(express.urlencoded({ extended: true }));
 
 // Check if cache folder exists
-const fs = require("fs");
 if (!fs.existsSync("./accounts/")) { fs.mkdirSync("./accounts/"); }
 if (!fs.existsSync("./accounts/accounts.json")) { fs.writeFileSync("./accounts/accounts.json", JSON.stringify({"createdAccounts": {}})) }
 
 // Define endpoints
-const { defineEndpoints } = require("./src/enpoints.js");
 defineEndpoints(app);
 
 // Start server

@@ -1,10 +1,6 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-require('dotenv').config();
-const fs = require('fs');
-
-const { getRandomInt, getRandomUUID, getRandomItem, firstNames, lastNames, classes } = require("../util");
+import 'dotenv/config';
+import fs from 'fs';
+import { getRandomInt, getRandomUUID, getRandomItem, firstNames, lastNames, classes } from '../util.js';
 
 
 // Main function used to login
