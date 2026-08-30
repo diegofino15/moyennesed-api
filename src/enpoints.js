@@ -1,3 +1,6 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 const { login } = require('./test-api/login');
 const { getMarks } = require('./test-api/marks');
 const { getAllHomework, getSpecificHomework, setHomeworkAsDone } = require('./test-api/homework');
@@ -62,11 +65,11 @@ function defineEndpoints(app) {
 
 // Helper functions
 function parseBody(req) {
-  return JSON.parse(req.body.data.split("=")[1]);
+  return JSON.parse(req.body.data);
 }
 function parseToken(req) {
-  return req.body.headers["X-Token"];
+  return `${req.headers["X-Token"]}12345`;
 }
 
 
-module.exports = { defineEndpoints };
+export { defineEndpoints };

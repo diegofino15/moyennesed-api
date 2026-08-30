@@ -141,5 +141,4 @@ function createFakeAccountData({ accountID, isParent=false, _rec=false }) {
   };
 }
 
-
 module.exports = { login };
